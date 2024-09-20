@@ -1,0 +1,34 @@
+name: Check for Typos
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  typos:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v2
+
+      - name: Run Typos Action
+        uses: wagoid/typos-action@v2
+        with:
+          files: |
+            README.md
+            docs/**/*.md
+            raito-landing/**/*.md
+            scripts/**/*.py
+            src/**/*.cairo
+            tests/**/*.py
+          dictionary: |
+            bitcoin
+            cairo
+            STARK
+          ignore: |
+            "project-specific terms"
