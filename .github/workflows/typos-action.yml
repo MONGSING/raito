@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run Typos Action
-        uses: wagoid/typos-action@v2
+        uses: wagoid/typos-action@v1  # Use v1 instead of v2
         with:
           files: |
             README.md
